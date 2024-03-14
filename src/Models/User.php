@@ -39,11 +39,19 @@ class User
     public function __construct()
     {
         try {
-            $this->db = new PDO('mysql:host=localhost;dbname=todolist;charset=utf8', 'root', '');
+            $this->db = new PDO('mysql:host=localhost;dbname=todo_list_v2;charset=utf8', 'root', '');
         } catch (Exception $error) {
             die($error->getMessage()); // Terminer le script avec un message d'erreur
         }
     }
+
+    public function getUserList()
+    {
+        $query = 'SELECT `id`, `pseudo`, `email` FROM ' . $this->table;
+        $queryStatement = $this->db->query($query);
+        return $queryStatement->fetchAll(PDO::FETCH_OBJ);
+    }
+
     /**
      * Définit l'adresse email de l'utilisateur.
      *
