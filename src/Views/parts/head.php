@@ -10,3 +10,29 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="/public/img/logo.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+                Todo Liste
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <?php
+                if (isset($_SESSION['user'])) {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Déconnection</a>
+                    </li>
+                <?php
+                } else {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Connection</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </nav>
