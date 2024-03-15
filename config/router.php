@@ -6,6 +6,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes = [
     '/' => 'HomeController.php',
     '/register' => 'RegisterController.php',
+    '/login' => 'LoginController.php',
+    '/logout' => 'LogoutController.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
