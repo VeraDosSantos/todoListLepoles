@@ -1,10 +1,32 @@
 <?php
 require_once(__DIR__ . '/../../config/function.php');
-require_once(__DIR__ . '/../Models/User.php');
+require_once(__DIR__ . '/../Models/Task.php');
 
-$users = new User;
+if (isset($_SESSION['user'])) {
+    $task = new Task;
 
-$myListUsers = $users->getUserList();
+    $myUser = $_SESSION['user']['idUser'];
+
+    $task->setIdUser($myUser);
+    $tasksList = $task->getListTasksNotDone();
+    $tasksListDone = $task->getListTasksDone();
+
+    if (isset($_POST['idDone'])) {
+        $id = $_POST['idDone'];
+        $task->setIdTask($id);
+        $task->isDoneTask();
+        redirectToRoute('/');
+    }
+
+    if (isset($_POST['idDelete'])) {
+        $id = $_POST['idDelete'];
+        $task->setIdTask($id);
+        $task->deleteTask();
+        redirectToRoute('/');
+    }
+}
+
+
 
 
 require_once(__DIR__ . '/../Views/home.view.php');
