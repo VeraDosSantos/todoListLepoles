@@ -11,9 +11,6 @@ require_once(__DIR__ . "/../parts/head.php");
     <div>
         <label for="email">E-mail</label>
         <input type="text" name='email'>
-        <?php if (isset($error)) {
-            echo "<p class='text-danger'>" . $error . "</p>";
-        } ?>
     </div>
     <div>
         <label for="password">password</label>
