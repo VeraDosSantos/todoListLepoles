@@ -8,6 +8,8 @@ $routes = [
     '/register' => 'RegisterController.php',
     '/login' => 'LoginController.php',
     '/logout' => 'LogoutController.php',
+    '/task-add' => 'TaskController.php',
+    '/task-update' => 'TaskController.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
